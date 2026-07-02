@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://omy5d054kwjy"]
+
+[node name="Main" type="Node2D" unique_id=1074692360]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1871512976]
+offset_left = 153.0
+offset_top = 57.0
+offset_right = 767.0
+offset_bottom = 185.0
+color = Color(0.9254902, 0.41568628, 0.1254902, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1942484198]
+offset_left = 434.0
+offset_top = 296.0
+offset_right = 702.0
+offset_bottom = 383.0
+text = "hello world"
