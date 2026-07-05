@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://0kly333b5kvj"]
+
+[ext_resource type="Script" uid="uid://firjmyey0t80" path="res://scenes/game/clock_system/clock_system.gd" id="1_w1fn1"]
+[ext_resource type="Texture2D" uid="uid://da4pv8vo7drjh" path="res://assets/game/clock/clock_background.png" id="2_i43hn"]
+[ext_resource type="Texture2D" uid="uid://30urus1v8wkh" path="res://assets/game/clock/clock_hand.png" id="3_ckev4"]
+
+[node name="ClockSystem" type="Node2D" unique_id=1321113709]
+script = ExtResource("1_w1fn1")
+
+[node name="ClockBackground" type="Sprite2D" parent="." unique_id=1785044971]
+texture = ExtResource("2_i43hn")
+
+[node name="ClockHand" type="Sprite2D" parent="." unique_id=1558138481]
+texture = ExtResource("3_ckev4")
