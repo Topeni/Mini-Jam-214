@@ -1,57 +1,87 @@
-[gd_scene format=3 uid="uid://d11c4llsbx5cl"]
+[gd_scene format=4 uid="uid://d11c4llsbx5cl"]
 
 [ext_resource type="Script" uid="uid://d4bweejox6tsf" path="res://scenes/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://0kly333b5kvj" path="res://scenes/game/clock_system/clock_system.tscn" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://dal5vfeys3mbu" path="res://scenes/game/player/player.tscn" id="3_0sr1o"]
+[ext_resource type="PackedScene" uid="uid://dvhxj446d5ku" path="res://scenes/game/collectibles/coin.tscn" id="4_kelw5"]
+[ext_resource type="PackedScene" uid="uid://icw7poon3s6l" path="res://scenes/game/collectibles/hourglass.tscn" id="4_lfrn8"]
+[ext_resource type="Texture2D" uid="uid://buyapwbqkyir1" path="res://assets/game/tileset.png" id="6_5i0tg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bdhmt"]
+texture = ExtResource("6_5i0tg")
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/next_alternative_id = 3
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_87uf6"]
+physics_layer_0/collision_layer = 3
+sources/0 = SubResource("TileSetAtlasSource_bdhmt")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0sr1o"]
-size = Vector2(320, 16)
+size = Vector2(640, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kelw5"]
-size = Vector2(16, 180)
+size = Vector2(16, 360)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfrn8"]
-size = Vector2(320, 16)
+size = Vector2(640, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5i0tg"]
-size = Vector2(16, 180)
+size = Vector2(16, 360)
 
 [node name="Game" type="Node2D" unique_id=473286682]
 script = ExtResource("1_7h61r")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1689014134]
-offset_right = 320.0
-offset_bottom = 180.0
-color = Color(0.18039216, 0.6039216, 0.90588236, 1)
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1625735519]
+tile_map_data = PackedByteArray("AAAQAAsAAAAKAAAAAAARAAsAAAALAAAAAAAVAAkAAAAIAAAAAAAWAAkAAAAJAAAAAAAUAAwAAAAHAAAAAAAUAA0AAAAHAAAAAAAUAA4AAAAHAAAAAAAUAA8AAAAHAAAAAAAVAA8AAAAHAAAAAAAWAA8AAAAHAAAAAAAXAA8AAAAHAAAAAAAXAA4AAAAHAAAAAAAXAA0AAAAHAAAAAAAWAAwAAAAHAAAAAAAVAAwAAAAHAAAAAAAVAA0AAAAHAAAAAAAVAA4AAAAHAAAAAAAWAA4AAAAHAAAAAAAWAA0AAAAHAAAAAAAXAAwAAAAHAAAAAAAYAAwAAAACAAAAAAAZAAwAAAACAAAAAAAaAAwAAAACAAAAAAAbAAwAAAACAAAAAAAdAAoAAAADAAAAAAAeAAoAAAAEAAAAAAAdAAsAAAAFAAAAAAAeAAsAAAAGAAAAAAAeAAcAAAAHAAAAAAAfAAcAAAAHAAAAAAAgAAcAAAAHAAAAAAAbAAQAAAAHAAAAAAAcAAQAAAAHAAAAAAAdAAQAAAAHAAAAAAAfAAYAAAAHAAAAAAAfAAgAAAAHAAAAAAAeAAgAAAAHAAAAAAAeAAYAAAAHAAAAAAAgAAgAAAAHAAAAAAAgAAYAAAAHAAAAAAAHAA0AAAAHAAAAAAAHAAwAAAAHAAAAAAAGAAwAAAAHAAAAAAAFAA0AAAAHAAAAAAAGAA0AAAAHAAAAAAAGAA4AAAAHAAAAAAAHAA4AAAAHAAAAAAAFAA4AAAAHAAAAAAAFAAwAAAAHAAAAAAAFAAEAAAAHAAAAAAAEAAEAAAAHAAAAAAAEAAIAAAAHAAAAAAAEAAMAAAAHAAAAAAAFAAMAAAAHAAAAAAAGAAMAAAAHAAAAAAAGAAIAAAAHAAAAAAAFAAIAAAAHAAAAAAAGAAEAAAAHAAAAAAAZAA0AAAAHAAAAAAARAAUAAAAGAAAAAAAQAAUAAAAGAAAAAAAPAAUAAAAGAAAAAAAOAAUAAAAGAAAAAAANAAUAAAAGAAAAAAA=")
+tile_set = SubResource("TileSet_87uf6")
 
 [node name="ClockSystem" parent="." unique_id=1321113709 instance=ExtResource("1_sul5r")]
 position = Vector2(24, 24)
 
-[node name="AddTimeButton" type="Button" parent="." unique_id=175270798]
-offset_left = 64.0
-offset_top = 16.0
-offset_right = 80.0
-offset_bottom = 32.0
+[node name="Player" parent="." unique_id=1721229841 instance=ExtResource("3_0sr1o")]
+position = Vector2(240, 136)
 
-[node name="Player" parent="." unique_id=1721229841 groups=["bounds"] instance=ExtResource("3_0sr1o")]
-position = Vector2(144, 80)
-
-[node name="Borders" type="StaticBody2D" parent="." unique_id=1079887709 groups=["bounds"]]
+[node name="Borders" type="StaticBody2D" parent="." unique_id=1079887709]
 
 [node name="BorderUp" type="CollisionShape2D" parent="Borders" unique_id=1875665055]
-position = Vector2(160, -8)
+position = Vector2(320, -8)
 shape = SubResource("RectangleShape2D_0sr1o")
 
 [node name="BorderRight" type="CollisionShape2D" parent="Borders" unique_id=1510950535]
-position = Vector2(328, 90)
+position = Vector2(648, 180)
 shape = SubResource("RectangleShape2D_kelw5")
 
 [node name="BorderDown" type="CollisionShape2D" parent="Borders" unique_id=381739095]
-position = Vector2(160, 188)
+position = Vector2(320, 368)
 shape = SubResource("RectangleShape2D_lfrn8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders" unique_id=1201805457]
-position = Vector2(-8, 90)
+position = Vector2(-8, 180)
 shape = SubResource("RectangleShape2D_5i0tg")
 
-[connection signal="button_down" from="AddTimeButton" to="." method="_on_add_time_button_button_down"]
+[node name="Hourglass" parent="." unique_id=1671855619 instance=ExtResource("4_lfrn8")]
+position = Vector2(86.509186, 39.909576)
+
+[node name="Hourglass2" parent="." unique_id=623457767 instance=ExtResource("4_lfrn8")]
+position = Vector2(456, 72)
+
+[node name="Coin2" parent="." unique_id=1771247526 instance=ExtResource("4_kelw5")]
+position = Vector2(112, 216)
+
+[node name="Coin" parent="." unique_id=351165187 instance=ExtResource("4_kelw5")]
+position = Vector2(504, 120)

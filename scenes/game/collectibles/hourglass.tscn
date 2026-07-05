@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://icw7poon3s6l"]
+
+[ext_resource type="Script" uid="uid://4lm3ja5bsrk2" path="res://scenes/game/collectibles/hourglass.gd" id="1_jph3i"]
+[ext_resource type="Texture2D" uid="uid://ihdweg0e5m6a" path="res://assets/game/collectibles/hourglass.png" id="2_gcnqg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v7cis"]
+radius = 8.0
+
+[node name="Hourglass" type="Area2D" unique_id=1671855619]
+script = ExtResource("1_jph3i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=649709263]
+shape = SubResource("CircleShape2D_v7cis")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=643164356]
+texture = ExtResource("2_gcnqg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
